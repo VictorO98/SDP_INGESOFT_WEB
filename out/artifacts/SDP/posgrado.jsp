@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -45,10 +47,28 @@
 <div class="wrapper row2">
   <div id="container" class="clear">
     <div class="left_col">
+
+
+
+
     <p>POSGRADOS DISPONIBLES: </p>	
 	  <ul style="list-style-type:disc">
 	    <li><a href="https://www.javerianacali.edu.co/programas/doctorado-en-ingenieria">Doctorado en Ingeniería</a></li>
-	  </ul> 
+	  </ul>
+
+
+        <sql:setDataSource var = "con" driver = "com.mysql.jdbc.Driver" url = "jdbc:mysql://localhost:3306/SDP_INGESOFT"
+        user = "juancmartinez" password = "adminsdp"/>
+        <sql:query var = "result" dataSource = "${con}"> select * from master</sql:query>
+        <c:forEach var = "rows" items = "${result.rows}">
+            <table>
+            <tr>
+            <td><c:out value = "${rows.master_nombre}" /></td>
+            </tr>
+            </table>
+        </c:forEach>
+
+
   	</div>
   <div class="right_col">
   	<p>NUESTROS PROFESORES:</p>

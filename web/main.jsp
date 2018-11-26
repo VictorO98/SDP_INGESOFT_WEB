@@ -31,7 +31,7 @@
 	<!----------------https://www.javerianacali.edu.co/programas-y-facultades#quickset-program=5------------>
     <nav>
       <ul>
-        <li><a href="posgrado.jsp">Posgrados</a></li>
+        <li><a href="posgrado">Posgrados</a></li>
         <li><a href="aspirantes.jsp">Aspirantes</a></li>
         <li><a href="estudiantes.jsp">Estudiantes</a></li>
         <li><a href="login.jsp">Login</a></li>

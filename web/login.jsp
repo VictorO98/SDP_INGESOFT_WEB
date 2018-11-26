@@ -44,10 +44,10 @@
 <div class="wrapper row2">
   <div id="container" class="clear">
     <!-- content body -->
-    <form class="form-signin">       
+    <form class="form-signin" action = "login">
       <h2 class="form-signin-heading">Iniciar Sesión</h2>
       <input type="text" class="form-control" name="Usuario" placeholder="E-mail" required="" autofocus="" />
-      <input type="password" class="form-control" name="Contraseña" placeholder="Contraseña" required=""/>      
+      <input type="password" class="form-control" name="Contra" placeholder="Contraseña" required=""/>
       <label class="checkbox">
         <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Recordarme
       </label>

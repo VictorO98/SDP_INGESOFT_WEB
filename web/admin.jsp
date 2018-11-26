@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -22,6 +24,17 @@
 <div class="wrapper row2">
   <div id="container" class="clear">
     <p>&nbsp;</p>
+
+      <%
+
+          if(session.getAttribute("username") == null){
+              response.sendRedirect("login.jsp");
+          }
+
+      %>
+
+      Bienvenido ${username}
+
     <h1>Advertencia:Para realizar cambios en la página es necesario que se haga un solo cambio a la vez y hacer click en aceptar, no se deben realizar cambios simultaneamente</h1>
     <div class="left_col">
     <p>&nbsp;</p>

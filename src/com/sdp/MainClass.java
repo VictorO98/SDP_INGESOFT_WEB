@@ -17,33 +17,31 @@ public class MainClass {
 
     }
 
-    public static String mostrar() {
+    public static String mostrar() throws SQLException {
         Connection connection = null;
 
         String pregunta = null;
         try {
 
-            Class.forName(JDBC_DRIVER);
-            connection = DriverManager.getConnection(CONNECTION_URL, "juancmartinez", "adminsdp");
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/SDP_INGESOFT?useTimezone=true&serverTimezone=UTC", "juancmartinez", "adminsdp");
 
             // our SQL SELECT query.
             // if you only need a few columns, specify them by name instead of using "*"
-            String query = "SELECT pregunta, respuesta FROM faq";
+            String query = "SELECT * FROM master";
 
             // create the java statement
             Statement st = connection.createStatement();
 
             // execute the query, and get a java result set
             ResultSet rs = st.executeQuery(query);
-
+            System.out.print("Antes del while");
             // iterate through the java result set
             while (rs.next()) {
-                ;
-
                 //int masterID = rs.getInt("MASTER_master_id");
                 // print the results
 
-                System.out.format("%s %s",rs.getString("pregunta"), rs.getString("respuesta"));
+                System.out.format("%s",rs.getString("master_nombre"));
 
             }
         } catch (ClassNotFoundException e) {
@@ -57,14 +55,9 @@ public class MainClass {
             //Handle errors for Class.forName
             e.printStackTrace();
             System.out.print("Excepcion General\n");
-        } finally {
-            //finally block used to close resources
-            try {
-                connection.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
+
+        connection.close();
 
         return pregunta;
     }
